@@ -23,6 +23,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 // Routes
 app.use('/api/user', userRoutes);
 app.use('/api/place', placeRoutes);
+app.get('/', (req, res) => res.send('Bienvenue sur une API de test pour un projet !'));
 
 // Start server
 app.listen(port, () => console.log(`Server listening on port ${port}!`));
