@@ -21,3 +21,13 @@ exports.addUser = async (user) => {
         throw err;
     }
 };
+
+// Update one user by id in mongoDB
+exports.updateUser = async (id, user) => {
+    try {
+        const userAfterUpdate = await User.findByIdAndUpdate(id, user, { new: true }).exec();
+        console.log('user after update', userAfterUpdate);
+    } catch (err) {
+        throw err;
+    }
+};
