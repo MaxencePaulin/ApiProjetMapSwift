@@ -19,7 +19,7 @@ exports.addUserToPeopleInside = async (req, res) => {
         if (place.error) {
             return res.status(400).json(place);
         }
-        res.status(201).json(place);
+        res.status(200).json(place);
     } catch (err) {
         res.status(400).json(err);
     }
@@ -34,7 +34,7 @@ exports.removeUserToPeopleInside = async (req, res) => {
         if (place.error) {
             return res.status(400).json(place);
         }
-        res.status(201).json(place);
+        res.status(200).json(place);
     } catch (err) {
         res.status(400).json(err);
     }
