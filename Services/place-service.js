@@ -18,8 +18,8 @@ exports.getAllPlaces = async () => {
 exports.addUserToPeopleInside = async (idPlace, userId) => {
     try {
         const place = await Place.findById(idPlace).exec();
-        // récupérer les users déjà présents dans peopleInside pour vérifier si je n'existe pas déjà [{_id}]
-        const usersInside = place.peopleInside.map(user => user._id);
+        // récupérer les users déjà présents dans peopleInside pour vérifier si je n'existe pas déjà 
+        const usersInside = place.peopleInside
         // si je n'existe pas déjà dans peopleInside
         if (!usersInside.includes(userId)) {
             // j'ajoute mon id à peopleInside
@@ -40,7 +40,7 @@ exports.addUserToPeopleInside = async (idPlace, userId) => {
 exports.removeUserToPeopleInside = async (idPlace, userId) => {
     try {
         const place = await Place.findById(idPlace).exec();
-        const usersInside = place.peopleInside.map(user => user._id);
+        const usersInside = place.peopleInside
         if (usersInside.includes(userId)) {
             place.peopleInside.pull(userId);
             const savedPlace = await place.save();
