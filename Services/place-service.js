@@ -3,7 +3,11 @@ const { Place } = require('../Models/index.js');
 // Read all places from mongoDB
 exports.getAllPlaces = async () => {
     try {
-        const places = await Place.find().exec();
+        const places = await Place.find().populate({
+            path: 'peopleInside',
+            select: "firstName lastName email avatar"
+        })
+            .exec();
         return places;
     } catch (err) {
         throw err;
