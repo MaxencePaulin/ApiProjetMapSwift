@@ -36,3 +36,15 @@ exports.updateUser = async (req, res) => {
         res.status(400).json(err);
     }
 };
+
+// Read one user by id
+exports.getOneUser = async (req, res) => {
+    try {
+        console.log('get one user', req.params.id);
+        const user = await userService.getOneUser(req.params.id);
+        console.log('user after get one', user)
+        res.status(200).json(user);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+}

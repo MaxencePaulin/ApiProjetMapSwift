@@ -31,3 +31,13 @@ exports.updateUser = async (id, user) => {
         throw err;
     }
 };
+
+// Get one user by id from mongoDB
+exports.getOneUser = async (id) => {
+    try {
+        const user = await User.findById(id).exec();
+        return user;
+    } catch (err) {
+        throw err;
+    }
+};
