@@ -27,6 +27,7 @@ exports.updateUser = async (id, user) => {
     try {
         const userAfterUpdate = await User.findByIdAndUpdate(id, user, { new: true }).exec();
         console.log('user after update', userAfterUpdate);
+        return userAfterUpdate;
     } catch (err) {
         throw err;
     }
