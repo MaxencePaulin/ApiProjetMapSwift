@@ -26,9 +26,6 @@ exports.addUser = async (req, res) => {
 exports.updateUser = async (req, res) => {
     try {
         console.log('update user', req.body);
-        if (req.params.id && req.params.id != "") {
-            return res.status(400).json({ message: 'Id is required' });
-        }
         const user = await userService.updateUser(req.params.id, req.body);
         console.log('user after update', user)
         res.status(200).json(user);
